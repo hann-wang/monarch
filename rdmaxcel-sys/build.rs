@@ -202,7 +202,11 @@ fn main() {
     if is_rocm {
         builder = builder
             .clang_arg("-D__HIP_PLATFORM_AMD__=1")
-            .clang_arg("-DUSE_ROCM=1");
+            .clang_arg("-DUSE_ROCM=1")
+            // HIP types/vars used by rocm_compat in lib.rs (hipified from CUDA names)
+            .allowlist_type("hipMemoryType")
+            .allowlist_var("hipMemoryTypeDevice")
+            .allowlist_var("hipMemoryTypeHost");
     }
 
     if let Some(include_dir) = &python_config.include_dir {

@@ -46,6 +46,9 @@ mod inner {
         pub type CUmemAllocationProp = hipMemAllocationProp;
         pub type CUmemAccessDesc = hipMemAccessDesc;
 
+        pub const CU_MEMORYTYPE_DEVICE: hipMemoryType = hipMemoryTypeDevice;
+        pub const CU_MEMORYTYPE_HOST: hipMemoryType = hipMemoryTypeHost;
+
         // Error codes
         pub const CUDA_SUCCESS: hipError_t = hipSuccess;
 
